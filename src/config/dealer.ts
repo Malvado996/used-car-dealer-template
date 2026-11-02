@@ -23,10 +23,16 @@ export const dealer = {
    * Tailwind/shadcn tokens (bg-primary, text-primary, bg-brand-accent, ...).
    */
   colors: {
-    primary: "#1d4ed8",
+    /** Navy */
+    primary: "#1b2a4a",
     primaryForeground: "#ffffff",
-    accent: "#f59e0b",
-    accentForeground: "#111827",
+    /** Deep red */
+    accent: "#b22234",
+    accentForeground: "#ffffff",
+    /** Off-white page background */
+    background: "#fbfaf7",
+    /** Near-black navy body text */
+    foreground: "#14213d",
   },
 
   /** Display format and tel: format */

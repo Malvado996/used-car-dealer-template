@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: dealer.colors.primary };
 
 /** Brand colors from dealer config -> CSS variables used by Tailwind/shadcn tokens */
-const brandCss = `html:root{--primary:${dealer.colors.primary};--primary-foreground:${dealer.colors.primaryForeground};--ring:${dealer.colors.primary};--brand-accent:${dealer.colors.accent};--brand-accent-foreground:${dealer.colors.accentForeground};}`;
+const brandCss = `html:root{--primary:${dealer.colors.primary};--primary-foreground:${dealer.colors.primaryForeground};--ring:${dealer.colors.primary};--background:${dealer.colors.background};--foreground:${dealer.colors.foreground};--brand-accent:${dealer.colors.accent};--brand-accent-foreground:${dealer.colors.accentForeground};}`;
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

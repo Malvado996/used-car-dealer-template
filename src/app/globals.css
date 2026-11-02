@@ -133,3 +133,19 @@
   --color-brand-accent: var(--brand-accent);
   --color-brand-accent-foreground: var(--brand-accent-foreground);
 }
+
+/* Subtle American motifs (pure CSS, tinted from brand variables so they follow dealer overrides) */
+@utility bg-stripes {
+  background-image: repeating-linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--brand-accent) 14%, transparent) 0 14px,
+    transparent 14px 28px
+  );
+}
+@utility bg-stars {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M24 14l2.35 7.24h7.6l-6.15 4.47 2.35 7.24L24 28.48l-6.15 4.47 2.35-7.24-6.15-4.47h7.6z' fill='white' fill-opacity='0.07'/%3E%3C/svg%3E");
+}
+@utility stripe-rule {
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand-accent) 0 33.3%, #ffffff 33.3% 66.6%, var(--primary) 66.6% 100%);
+}
