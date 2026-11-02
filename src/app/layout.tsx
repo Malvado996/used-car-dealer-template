@@ -1,10 +1,14 @@
 import type { Metadata, Viewport } from "next";
+import { Oswald, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import { dealer } from "@/config/dealer";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { JsonLd } from "@/components/json-ld";
 import { autoDealerJsonLd } from "@/lib/seo";
+
+const heading = Oswald({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-oswald", display: "swap" });
+const body = Source_Sans_3({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(dealer.seo.siteUrl),
@@ -31,7 +35,7 @@ const brandCss = `html:root{--primary:${dealer.colors.primary};--primary-foregro
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${heading.variable} ${body.variable}`}>
       <head>
         <style dangerouslySetInnerHTML={{ __html: brandCss }} />
       </head>
