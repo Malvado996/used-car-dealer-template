@@ -1,4 +1,5 @@
 /**
+import "server-only";
  * Inventory feed abstraction.
  *
  * Pages only call the exported functions below (getAllVehicles, getVehicleBySlug).
@@ -7,32 +8,10 @@
  */
 import fs from "node:fs/promises";
 import path from "node:path";
+import type { Vehicle } from "@/lib/vehicle";
 
-export type Vehicle = {
-  id: string;
-  /** true for template demo data; shown with a "Sample" badge */
-  sample?: boolean;
-  stockNumber: string;
-  vin: string;
-  year: number;
-  make: string;
-  model: string;
-  trim?: string;
-  price: number;
-  mileage: number;
-  bodyStyle?: string;
-  exteriorColor?: string;
-  interiorColor?: string;
-  transmission?: string;
-  drivetrain?: string;
-  fuelType?: string;
-  engine?: string;
-  condition?: "Used" | "Certified" | "New";
-  status?: "available" | "pending" | "sold";
-  images: string[];
-  features: string[];
-  description: string;
-};
+export * from "@/lib/vehicle";
+import { vehicleSlug } from "@/lib/vehicle";
 
 export interface InventoryProvider {
   list(): Promise<Vehicle[]>;
@@ -63,17 +42,6 @@ export const jsonFileProvider: InventoryProvider = {
 
 const activeProvider: InventoryProvider = jsonFileProvider;
 
-export function vehicleTitle(v: Pick<Vehicle, "year" | "make" | "model" | "trim">) {
-  return [v.year, v.make, v.model, v.trim].filter(Boolean).join(" ");
-}
-
-export function vehicleSlug(v: Vehicle) {
-  return `${v.year}-${v.make}-${v.model}-${v.stockNumber}`
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
-
 export async function getAllVehicles(): Promise<Vehicle[]> {
   const list = await activeProvider.list();
   return list.filter((v) => v.status !== "sold");
@@ -83,8 +51,3 @@ export async function getVehicleBySlug(slug: string) {
   const list = await getAllVehicles();
   return list.find((v) => vehicleSlug(v) === slug) ?? null;
 }
-
-export const formatPrice = (n: number) =>
-  new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(n);
-
-export const formatMileage = (n: number) => `${new Intl.NumberFormat("en-US").format(n)} mi`;

@@ -1,8 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { Vehicle } from "@/lib/inventory";
-import { formatPrice } from "@/lib/inventory";
+import type { Vehicle } from "@/lib/vehicle";
+import { formatPrice } from "@/lib/vehicle";
 import { VehicleCard } from "./vehicle-card";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";

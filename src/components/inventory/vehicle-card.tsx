@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { type Vehicle, formatMileage, formatPrice, vehicleSlug, vehicleTitle } from "@/lib/inventory";
+import { type Vehicle, formatMileage, formatPrice, vehicleSlug, vehicleTitle } from "@/lib/vehicle";
 
 export function VehicleCard({ v }: { v: Vehicle }) {
   const title = vehicleTitle(v);
