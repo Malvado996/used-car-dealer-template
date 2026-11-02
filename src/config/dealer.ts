@@ -81,7 +81,8 @@ export const dealer = {
     description:
       "Browse quality used cars, trucks and SUVs at Sample Motors in Springfield. Transparent pricing, inspected vehicles, friendly local service.",
     keywords: ["used cars", "pre-owned", "Springfield", "car dealer"],
-    ogImage: "/brand/og.png",
+    /** Optional 1200x630 image in /public, e.g. "/brand/og.jpg". Empty = none. */
+    ogImage: "",
     locale: "en_US",
   },
 };
