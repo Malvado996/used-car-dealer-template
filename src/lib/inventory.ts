@@ -1,5 +1,6 @@
-/**
 import "server-only";
+
+/**
  * Inventory feed abstraction.
  *
  * Pages only call the exported functions below (getAllVehicles, getVehicleBySlug).
