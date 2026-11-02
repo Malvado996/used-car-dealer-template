@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { dealer, fullAddress } from "@/config/dealer";
 import { HoursList } from "@/components/hours-list";
+import { VeteranBadges } from "@/components/veteran/veteran-badges";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: `Learn about ${dealer.name}, an independent used car dealer in ${dealer.address.city}, ${dealer.address.region}.`,
+  description: `Learn about ${dealer.name}, a ${dealer.veteran?.veteranOwned ? "veteran-owned" : "independent"} used car dealer in ${dealer.address.city}, ${dealer.address.region}.`,
   alternates: { canonical: "/about" },
 };
 
@@ -12,6 +13,8 @@ export default function AboutPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
       <h1 className="text-3xl font-bold sm:text-4xl">About {dealer.name}</h1>
+      <div aria-hidden className="stripe-rule mt-4 w-24" />
+      <VeteranBadges className="mt-4" />
       <h2 className="mt-6 text-xl font-semibold text-primary">{dealer.about.heading}</h2>
       <div className="mt-4 space-y-4 leading-relaxed">
         {dealer.about.body.map((p, i) => <p key={i}>{p}</p>)}
