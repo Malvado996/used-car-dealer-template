@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, Phone, X } from "lucide-react";
+import { LogIn, Menu, Phone, X } from "lucide-react";
 import { dealer } from "@/config/dealer";
 import { buttonVariants } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -35,6 +35,14 @@ export function SiteHeader() {
         </nav>
         <div className="flex items-center gap-1 sm:gap-2">
           <ThemeToggle />
+          <Link
+            href="/admin/login"
+            className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "text-muted-foreground hover:text-foreground")}
+            aria-label="Dealer sign-in"
+            title="Dealer sign-in"
+          >
+            <LogIn aria-hidden />
+          </Link>
           <a
             href={`tel:${dealer.phone.tel}`}
             className={cn(buttonVariants({ size: "lg" }), "h-10 px-3")}
