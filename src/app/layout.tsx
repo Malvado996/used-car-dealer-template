@@ -5,6 +5,7 @@ import { dealer } from "@/config/dealer";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import { PublicChrome } from "@/components/public-chrome";
 import { JsonLd } from "@/components/json-ld";
 import { autoDealerJsonLd } from "@/lib/seo";
 
@@ -47,9 +48,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-background focus:p-2">
           Skip to content
         </a>
-        <SiteHeader />
+        <PublicChrome><SiteHeader /></PublicChrome>
         <main id="main" className="flex-1">{children}</main>
-        <SiteFooter />
+        <PublicChrome><SiteFooter /></PublicChrome>
         <JsonLd data={autoDealerJsonLd()} />
         </ThemeProvider>
       </body>

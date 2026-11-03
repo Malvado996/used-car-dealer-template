@@ -62,6 +62,22 @@ npm run lint && npm run build
 ```
 Deploy to Vercel or any Node host. Before launch, make sure `seo.siteUrl` matches the live domain, then submit `https://<domain>/sitemap.xml` to Google Search Console.
 
+## Admin (starter)
+
+A minimal, single-dealer admin lives at `/admin` (sign in at `/admin/login`). It lists all inventory, including sold vehicles, with links to **Add vehicle**, **Edit** and **Upload photos**. Those three pages are "coming soon" stubs for now and nothing writes data yet.
+
+Set these environment variables. Copy `.env.example` to `.env.local` for local dev, and use your host's env settings in production:
+
+| Variable | Purpose |
+| --- | --- |
+| `ADMIN_EMAIL` | The one email allowed to sign in |
+| `ADMIN_PASSWORD` | Its password. Use a long random value |
+| `ADMIN_SESSION_SECRET` | Secret for signing the session cookie, at least 16 characters, e.g. `openssl rand -base64 32` |
+
+How it works: a server action compares the email and password in constant time and then sets an httpOnly, `sameSite=lax` cookie (secure in production). The cookie holds an HMAC-SHA256 signed session (email + 7-day expiry). `src/middleware.ts` redirects `/admin/*` to `/admin/login?next=...` when the cookie is missing or invalid, and the admin layout verifies the session again on the server. Changing `ADMIN_SESSION_SECRET` signs everyone out. `/admin` is marked `noindex`, disallowed in `robots.txt` and left out of the sitemap.
+
+> **This is starter auth. Replace it before production.** It has no rate limiting, lockout, password hashing, 2FA or multi-user support. Swap in a real provider (Auth.js, Clerk, Supabase Auth, etc.) before you go live. Never commit `.env.local`, because this repo is public.
+
 ## Project layout
 ```
 data/inventory.json            Sample inventory (replace)

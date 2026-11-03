@@ -52,3 +52,13 @@ export async function getVehicleBySlug(slug: string) {
   const list = await getAllVehicles();
   return list.find((v) => vehicleSlug(v) === slug) ?? null;
 }
+
+/** Admin: every vehicle, including sold ones. */
+export async function getAllVehiclesForAdmin(): Promise<Vehicle[]> {
+  return activeProvider.list();
+}
+
+export async function getAdminVehicleBySlug(slug: string) {
+  const list = await getAllVehiclesForAdmin();
+  return list.find((v) => vehicleSlug(v) === slug) ?? null;
+}
