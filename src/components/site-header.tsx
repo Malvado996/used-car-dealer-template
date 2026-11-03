@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
 import { dealer } from "@/config/dealer";
 import { buttonVariants } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
 
 const nav = [
@@ -18,7 +19,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-4 sm:gap-4">
         <Link href="/" className="flex items-center gap-2 font-semibold" aria-label={`${dealer.name} home`}>
           <Image src={dealer.logo} alt="" width={36} height={36} priority />
           <span className="text-lg">{dealer.name}</span>
@@ -32,7 +33,8 @@ export function SiteHeader() {
             ))}
           </ul>
         </nav>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2">
+          <ThemeToggle />
           <a
             href={`tel:${dealer.phone.tel}`}
             className={cn(buttonVariants({ size: "lg" }), "h-10 px-3")}

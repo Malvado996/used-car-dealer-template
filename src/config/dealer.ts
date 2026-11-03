@@ -8,10 +8,7 @@
 
 export type VeteranConfig = {
   veteranOwned?: boolean;
-  militaryDiscount?: string;
   branchesServed?: string[];
-  perks?: string[];
-  disclaimer?: string;
 };
 
 export type DayHours = { day: string; open: string | null; close: string | null };
@@ -53,23 +50,13 @@ export const dealer = {
 
   /**
    * Veteran & military benefits. Every field is optional:
-   * set veteranOwned=false, militaryDiscount="" and branchesServed=[]
-   * (or the whole block to null) and the section + badges disappear.
+   * set veteranOwned=false and branchesServed=[]
+   * (or the whole block to null) and the badges disappear.
    */
   veteran: {
     veteranOwned: true,
-    /** Short offer text shown in the badge and benefits section; "" hides it. */
-    militaryDiscount: "$500 off any vehicle for active duty, veterans, and military families",
     /** Owner/staff service branches, plain text (no insignia). [] hides the line. */
     branchesServed: ["U.S. Army", "U.S. Marine Corps"],
-    /** Extra benefit bullets. [] hides the list. */
-    perks: [
-      "Flexible financing help for first-time and deployment-affected buyers",
-      "Priority test drives and appointments around drill and duty schedules",
-      "Fair trade-in offers, no haggling, no pressure",
-    ],
-    /** Fine print under the section; "" hides it. */
-    disclaimer: "Valid military, veteran, or dependent ID required. Cannot be combined with other offers.",
   } as VeteranConfig | null,
 
   /** Display format and tel: format */
@@ -124,7 +111,7 @@ export const dealer = {
     title: "Sample Motors | Veteran-Owned Used Car Dealer in Springfield, ST",
     description:
       "Browse quality used cars, trucks and SUVs at Sample Motors in Springfield. Transparent pricing, inspected vehicles, friendly local service.",
-    keywords: ["used cars", "pre-owned", "Springfield", "car dealer", "veteran-owned", "military discount"],
+    keywords: ["used cars", "pre-owned", "Springfield", "car dealer", "veteran-owned"],
     /** Optional 1200x630 image in /public, e.g. "/brand/og.jpg". Empty = none. */
     ogImage: "",
     locale: "en_US",
@@ -136,8 +123,3 @@ export type Dealer = typeof dealer;
 export const fullAddress = (d: Dealer = dealer) =>
   `${d.address.street}, ${d.address.city}, ${d.address.region} ${d.address.postalCode}`;
 
-/** True when the dealer has any veteran/military content to show. */
-export const hasVeteranBenefits = (d: Dealer = dealer) => {
-  const v = d.veteran;
-  return !!v && (!!v.veteranOwned || !!v.militaryDiscount || !!v.branchesServed?.length || !!v.perks?.length);
-};
