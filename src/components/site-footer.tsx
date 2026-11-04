@@ -7,11 +7,11 @@ const socialLabels: Record<string, string> = { facebook: "Facebook", instagram: 
 export function SiteFooter() {
   const socials = Object.entries(dealer.social).filter(([, url]) => url);
   return (
-    <footer className="mt-16 border-t bg-muted/40">
+    <footer className="mt-16 border-t bg-red-700 text-white">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 text-sm sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <p className="text-base font-semibold">{dealer.name}</p>
-          <p className="mt-2 text-muted-foreground">{dealer.tagline}</p>
+          <p className="mt-2 text-white/90">{dealer.tagline}</p>
         </div>
         <address className="not-italic">
           <p className="font-semibold">Visit us</p>
@@ -24,7 +24,7 @@ export function SiteFooter() {
         </address>
         <div>
           <p className="font-semibold">Hours</p>
-          <HoursList className="mt-2 text-muted-foreground" />
+          <HoursList className="mt-2 text-white/90" />
         </div>
         <div>
           <p className="font-semibold">Explore</p>
@@ -42,7 +42,7 @@ export function SiteFooter() {
           )}
         </div>
       </div>
-      <p className="border-t py-4 text-center text-xs text-muted-foreground">
+      <p className="border-t py-4 text-center text-xs text-white/90">
         © {new Date().getFullYear()} {dealer.legalName}. All rights reserved. Prices exclude tax, title and fees.
       </p>
     </footer>

@@ -18,7 +18,7 @@ const nav = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-40 border-b bg-background/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b bg-red-700 text-white">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-4 sm:gap-4">
         <Link href="/" className="flex items-center gap-2 font-semibold" aria-label={`${dealer.name} home`}>
           <Image src={dealer.logo} alt="" width={36} height={36} priority />
@@ -28,7 +28,7 @@ export function SiteHeader() {
           <ul className="flex items-center gap-6 text-sm font-medium">
             {nav.map((n) => (
               <li key={n.href}>
-                <Link href={n.href} className="hover:text-primary">{n.label}</Link>
+                <Link href={n.href} className="text-white/90 hover:text-white">{n.label}</Link>
               </li>
             ))}
           </ul>
@@ -37,7 +37,7 @@ export function SiteHeader() {
           <ThemeToggle />
           <Link
             href="/admin/login"
-            className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "text-muted-foreground hover:text-foreground")}
+            className={cn(buttonVariants({ variant: "ghost", size: "icon" }), "text-white/90 hover:bg-white/10 hover:text-white")}
             aria-label="Dealer sign-in"
             title="Dealer sign-in"
           >
@@ -45,7 +45,7 @@ export function SiteHeader() {
           </Link>
           <a
             href={`tel:${dealer.phone.tel}`}
-            className={cn(buttonVariants({ size: "lg" }), "h-10 px-3")}
+            className={cn(buttonVariants({ size: "lg" }), "h-10 bg-white px-3 text-red-700 shadow-sm hover:bg-white/90 hover:shadow-md")}
             aria-label={`Call ${dealer.name} at ${dealer.phone.display}`}
           >
             <Phone aria-hidden />

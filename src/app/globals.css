@@ -153,3 +153,32 @@
   height: 4px;
   background: linear-gradient(90deg, var(--brand-accent) 0 33.3%, #ffffff 33.3% 66.6%, var(--primary) 66.6% 100%);
 }
+
+/* Subtle showroom light: a soft radial glow drifting across the main area (~20s). */
+@keyframes showroom-drift {
+  0%   { background-position: 0% 0%; }
+  50%  { background-position: 100% 60%; }
+  100% { background-position: 0% 0%; }
+}
+@layer utilities {
+  .showroom-glow {
+    background-image: radial-gradient(
+      ellipse 40% 35% at 50% 50%,
+      color-mix(in oklab, var(--primary) 7%, transparent),
+      transparent 70%
+    );
+    background-size: 200% 200%;
+    background-repeat: no-repeat;
+    animation: showroom-drift 20s ease-in-out infinite;
+  }
+  .dark .showroom-glow {
+    background-image: radial-gradient(
+      ellipse 40% 35% at 50% 50%,
+      color-mix(in oklab, white 5%, transparent),
+      transparent 70%
+    );
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .showroom-glow { animation: none; }
+  }
+}

@@ -49,7 +49,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           Skip to content
         </a>
         <PublicChrome><SiteHeader /></PublicChrome>
-        <main id="main" className="flex-1">{children}</main>
+        <main id="main" className="showroom-glow flex-1">{children}</main>
         <PublicChrome><SiteFooter /></PublicChrome>
         <JsonLd data={autoDealerJsonLd()} />
         </ThemeProvider>
