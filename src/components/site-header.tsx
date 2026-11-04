@@ -22,7 +22,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-2 px-4 sm:gap-4">
         <Link href="/" className="flex items-center gap-2 font-semibold" aria-label={`${dealer.name} home`}>
           <Image src={dealer.logo} alt="" width={36} height={36} priority />
-          <span className="text-lg">{dealer.name}</span>
+          <span className="font-heading text-xl">{dealer.name}</span>
         </Link>
         <nav aria-label="Main" className="hidden md:block">
           <ul className="flex items-center gap-6 text-sm font-medium">

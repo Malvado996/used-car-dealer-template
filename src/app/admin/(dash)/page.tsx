@@ -38,7 +38,7 @@ export default async function AdminDashboard() {
     <div className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="font-heading text-2xl uppercase">Inventory</h1>
+          <h1 className="font-heading text-2xl">Inventory</h1>
           <p className="text-sm text-muted-foreground">{vehicles.length} vehicles (including sold)</p>
         </div>
         <Link href="/admin/vehicles/new" className={cn(buttonVariants(), "h-10 px-4")}>

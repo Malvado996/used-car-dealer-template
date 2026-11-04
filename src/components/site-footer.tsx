@@ -10,7 +10,7 @@ export function SiteFooter() {
     <footer className="mt-16 border-t bg-red-700 text-white">
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 text-sm sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <p className="text-base font-semibold">{dealer.name}</p>
+          <p className="font-heading text-lg font-semibold">{dealer.name}</p>
           <p className="mt-2 text-white/90">{dealer.tagline}</p>
         </div>
         <address className="not-italic">

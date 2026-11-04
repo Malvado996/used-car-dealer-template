@@ -15,7 +15,7 @@ export default async function AdminLoginPage({ searchParams }: { searchParams: P
     <div className="flex min-h-screen items-center justify-center p-4">
       <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle className="font-heading text-2xl uppercase">{dealer.name} Admin</CardTitle>
+          <CardTitle className="font-heading text-2xl">{dealer.name} Admin</CardTitle>
           <CardDescription>Sign in to manage inventory.</CardDescription>
         </CardHeader>
         <CardContent>

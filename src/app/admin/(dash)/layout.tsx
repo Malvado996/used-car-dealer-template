@@ -10,7 +10,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     <>
       <header className="border-b bg-background">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
-          <Link href="/admin" className="font-heading text-lg uppercase">
+          <Link href="/admin" className="font-heading text-lg">
             {dealer.name} <span className="text-muted-foreground">· Admin</span>
           </Link>
           <div className="flex items-center gap-3">

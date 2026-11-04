@@ -10,7 +10,7 @@ export function ComingSoon({ title, description }: { title: string; description:
       </Link>
       <Card>
         <CardHeader>
-          <CardTitle className="font-heading text-xl uppercase">{title}</CardTitle>
+          <CardTitle className="font-heading text-xl">{title}</CardTitle>
           <CardDescription>Coming soon</CardDescription>
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground">{description}</CardContent>
