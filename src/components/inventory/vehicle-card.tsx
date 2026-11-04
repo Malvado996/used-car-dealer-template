@@ -6,7 +6,7 @@ import { type Vehicle, formatMileage, formatPrice, vehicleSlug, vehicleTitle } f
 export function VehicleCard({ v }: { v: Vehicle }) {
   const title = vehicleTitle(v);
   return (
-    <article className="group overflow-hidden rounded-xl border bg-card shadow-sm transition-[transform,box-shadow] duration-300 ease-out hover:shadow-lg motion-safe:hover:scale-105 motion-safe:focus-within:scale-105 focus-within:ring-2 focus-within:ring-ring">
+    <article className="relative overflow-hidden rounded-xl border bg-card shadow-sm transition-[transform,box-shadow] duration-300 ease-out hover:z-10 hover:shadow-2xl motion-safe:hover:scale-110 focus-within:ring-2 focus-within:ring-ring">
       <Link href={`/inventory/${vehicleSlug(v)}`} className="block outline-none">
         <div className="relative aspect-[3/2] bg-muted">
           <Image
@@ -19,7 +19,7 @@ export function VehicleCard({ v }: { v: Vehicle }) {
           {v.sample && <Badge className="absolute left-2 top-2 bg-brand-accent text-brand-accent-foreground">Sample</Badge>}
         </div>
         <div className="space-y-1 p-4">
-          <h3 className="font-semibold leading-tight group-hover:text-primary">{title}</h3>
+          <h3 className="font-semibold leading-tight">{title}</h3>
           <p className="text-xl font-bold text-primary">{formatPrice(v.price)}</p>
           <p className="text-sm text-muted-foreground">
             {formatMileage(v.mileage)} · {v.transmission} · {v.drivetrain}
