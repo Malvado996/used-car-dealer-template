@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Phone } from "lucide-react";
 import { dealer } from "@/config/dealer";
@@ -6,7 +7,6 @@ import { InventoryBrowser } from "@/components/inventory/inventory-browser";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { VeteranBadges } from "@/components/veteran/veteran-badges";
-import { HeroIconPlaceholder } from "@/components/hero/hero-icon-placeholder";
 
 export default async function HomePage() {
   const vehicles = await getAllVehicles();
@@ -57,7 +57,15 @@ export default async function HomePage() {
               </a>
             </div>
           </div>
-          <HeroIconPlaceholder className="mx-auto hidden md:flex md:w-72" />
+          <Image
+            src="/brand/hero-car.webp"
+            alt="Illustrated front view of a classic muscle car"
+            width={1247}
+            height={897}
+            priority
+            sizes="(min-width: 768px) 18rem, 0px"
+            className="mx-auto hidden h-auto w-72 md:block"
+          />
         </div>
         <div aria-hidden className="stripe-rule" />
       </section>
