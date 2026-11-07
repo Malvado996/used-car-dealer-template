@@ -1,17 +1,10 @@
 /**
- * Decorative flag field on the main column. 100 five-point stars,
- * server-rendered. Motion is CSS only (see globals.css).
- *
- * Left-to-right breeze: column 0 is ahead of column 9.
- * delay = -((9 - col) * 0.72s + row * 0.03s)
- * The crest (θ = 0) is reached on the left first and arrives at the
- * right-hand column 6.48s later.
+ * Decorative flag field on the main column.
+ * Exactly 100 five-point stars, server-rendered and not animated.
  */
 
 const COLS = 10;
 const ROWS = 10;
-const COLUMN_STAGGER_S = 0.72;
-const ROW_STAGGER_S = 0.03;
 
 const STAR_PATH =
   "M12 1.4 14.82 8.18 22.1 8.76 16.78 13.68 18.62 21.02 12 17.02 5.38 21.02 7.22 13.68 1.9 8.76 9.18 8.18Z";
@@ -22,7 +15,6 @@ type Star = {
   row: number;
   x: number;
   y: number;
-  delay: number;
 };
 
 /** 10×10 flag field. Odd rows sit half a column to the right. */
@@ -36,14 +28,7 @@ function flagStars(): Star[] {
       const slot = col + (shifted ? 1 : 0.5);
       const x = 5 + ((slot - minSlot) / (maxSlot - minSlot)) * 90;
       const y = 6 + ((row + 0.5) / ROWS) * 88;
-      stars.push({
-        id: `r${row}c${col}`,
-        col,
-        row,
-        x,
-        y,
-        delay: -((COLS - 1 - col) * COLUMN_STAGGER_S + row * ROW_STAGGER_S),
-      });
+      stars.push({ id: `r${row}c${col}`, col, row, x, y });
     }
   }
   return stars;
@@ -53,24 +38,20 @@ export function Starfield() {
   return (
     <div className="starfield-slot" aria-hidden="true">
       <div className="starfield">
-      {flagStars().map((star) => (
-        <svg
-          key={star.id}
-          aria-hidden="true"
-          focusable="false"
-          className="starfield-star"
-          data-col={star.col}
-          data-row={star.row}
-          viewBox="0 0 24 24"
-          style={{
-            left: `${star.x}%`,
-            top: `${star.y}%`,
-            animationDelay: `${star.delay}s`,
-          }}
-        >
-          <path fill="currentColor" d={STAR_PATH} />
-        </svg>
-      ))}
+        {flagStars().map((star) => (
+          <svg
+            key={star.id}
+            aria-hidden="true"
+            focusable="false"
+            className="starfield-star"
+            data-col={star.col}
+            data-row={star.row}
+            viewBox="0 0 24 24"
+            style={{ left: `${star.x}%`, top: `${star.y}%` }}
+          >
+            <path fill="currentColor" d={STAR_PATH} />
+          </svg>
+        ))}
       </div>
     </div>
   );
