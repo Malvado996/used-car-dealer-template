@@ -1,42 +1,49 @@
 /**
- * Decorative American-flag canton on the main column.
- * 50 five-point stars, server-rendered. Motion is CSS only
- * (see `.starfield-star` in globals.css): an 8s ease-in-out wave,
- * translateY ±8px and rotate ±2deg, delayed by
- * -(column * 0.45s + row * 0.12s) so the field ripples.
+ * Decorative flag field on the main column. 100 five-point stars,
+ * server-rendered. Motion is CSS only (see globals.css).
+ *
+ * Left-to-right breeze: column 0 is ahead of column 9.
+ * delay = -((9 - col) * 0.48s + row * 0.05s)
+ * The 34% crest is reached on the left first and arrives at the
+ * right-hand column 4.32s later. A negative delay that grows with
+ * column would run the crest the other way, so it is not used.
  */
 
-const COLUMN_STAGGER_S = 0.45;
-const ROW_STAGGER_S = 0.12;
-const FLAG_COLUMNS = 6;
-const FLAG_ROWS = 9;
+const COLS = 10;
+const ROWS = 10;
+const COLUMN_STAGGER_S = 0.48;
+const ROW_STAGGER_S = 0.05;
 
 const STAR_PATH =
   "M12 1.4 14.82 8.18 22.1 8.76 16.78 13.68 18.62 21.02 12 17.02 5.38 21.02 7.22 13.68 1.9 8.76 9.18 8.18Z";
 
-const TONES = ["dim", "mid", "bright"] as const;
-
 type Star = {
   id: string;
+  col: number;
+  row: number;
   x: number;
   y: number;
   delay: number;
-  tone: (typeof TONES)[number];
 };
 
-/** Nine rows alternating 6 and 5 stars, odd rows shifted half a column. */
+/** 10×10 flag field. Odd rows sit half a column to the right. */
 function flagStars(): Star[] {
   const stars: Star[] = [];
-  for (let row = 0; row < FLAG_ROWS; row++) {
-    const count = row % 2 === 0 ? FLAG_COLUMNS : FLAG_COLUMNS - 1;
-    const offset = row % 2 === 0 ? 0 : 0.5;
-    for (let col = 0; col < count; col++) {
+  const minSlot = 0.25;
+  const maxSlot = 10.25;
+  for (let row = 0; row < ROWS; row++) {
+    const shifted = row % 2 === 1;
+    for (let col = 0; col < COLS; col++) {
+      const slot = col + (shifted ? 1 : 0.5);
+      const x = 5 + ((slot - minSlot) / (maxSlot - minSlot)) * 90;
+      const y = 6 + ((row + 0.5) / ROWS) * 88;
       stars.push({
         id: `r${row}c${col}`,
-        x: ((col + offset + 0.5) / FLAG_COLUMNS) * 100,
-        y: ((row + 0.5) / FLAG_ROWS) * 100,
-        delay: -(col * COLUMN_STAGGER_S + row * ROW_STAGGER_S),
-        tone: TONES[(row + col) % TONES.length],
+        col,
+        row,
+        x,
+        y,
+        delay: -((COLS - 1 - col) * COLUMN_STAGGER_S + row * ROW_STAGGER_S),
       });
     }
   }
@@ -45,14 +52,16 @@ function flagStars(): Star[] {
 
 export function Starfield() {
   return (
-    <div className="starfield" aria-hidden="true">
+    <div className="starfield-slot" aria-hidden="true">
+      <div className="starfield">
       {flagStars().map((star) => (
         <svg
           key={star.id}
           aria-hidden="true"
           focusable="false"
           className="starfield-star"
-          data-tone={star.tone}
+          data-col={star.col}
+          data-row={star.row}
           viewBox="0 0 24 24"
           style={{
             left: `${star.x}%`,
@@ -63,6 +72,7 @@ export function Starfield() {
           <path fill="currentColor" d={STAR_PATH} />
         </svg>
       ))}
+      </div>
     </div>
   );
 }
