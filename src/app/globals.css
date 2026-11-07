@@ -154,29 +154,72 @@
   background: linear-gradient(90deg, var(--brand-accent) 0 33.3%, #ffffff 33.3% 66.6%, var(--primary) 66.6% 100%);
 }
 
-/* Showroom light: soft radial glows drifting across the main area (~20s). */
-@keyframes showroom-drift {
-  0%   { background-position: 0% 0%, 100% 100%; }
-  25%  { background-position: 100% 20%, 0% 80%; }
-  50%  { background-position: 80% 100%, 20% 0%; }
-  75%  { background-position: 10% 70%, 90% 30%; }
-  100% { background-position: 0% 0%, 100% 100%; }
+/* Flag-canton starfield on <main>. CSS only: 8s ease-in-out, translateY ±8px,
+   rotate ±2deg, column delay 0.45s, row delay 0.12s. No glow gradients. */
+@keyframes starfield-wave {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translate3d(0, -8px, 0) rotate(-2deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) translate3d(0, 8px, 0) rotate(2deg);
+  }
 }
-@layer utilities {
-  .showroom-glow {
-    background-image:
-      radial-gradient(ellipse 55% 45% at 50% 50%, color-mix(in oklab, var(--primary) 18%, transparent), transparent 70%),
-      radial-gradient(ellipse 45% 40% at 50% 50%, color-mix(in oklab, var(--brand-accent) 10%, transparent), transparent 70%);
-    background-size: 250% 250%, 250% 250%;
-    background-repeat: no-repeat;
-    animation: showroom-drift 20s ease-in-out infinite;
+
+.starfield-host {
+  isolation: isolate;
+}
+
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  contain: paint;
+}
+
+.starfield-star {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  color: var(--foreground);
+  opacity: 0.16;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: starfield-wave 8s ease-in-out infinite;
+}
+
+.starfield-star[data-tone="dim"] {
+  opacity: 0.1;
+}
+
+.starfield-star[data-tone="bright"] {
+  opacity: 0.22;
+}
+
+.dark .starfield-star {
+  color: #f4f0e6;
+  opacity: 0.55;
+}
+
+.dark .starfield-star[data-tone="dim"] {
+  opacity: 0.36;
+}
+
+.dark .starfield-star[data-tone="bright"] {
+  opacity: 0.74;
+}
+
+@media (min-width: 768px) {
+  .starfield-star {
+    width: 18px;
+    height: 18px;
   }
-  .dark .showroom-glow {
-    background-image:
-      radial-gradient(ellipse 55% 45% at 50% 50%, color-mix(in oklab, white 12%, transparent), transparent 70%),
-      radial-gradient(ellipse 45% 40% at 50% 50%, color-mix(in oklab, var(--brand-accent) 12%, transparent), transparent 70%);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .showroom-glow { animation: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .starfield-star {
+    animation: none;
   }
 }

@@ -1,19 +1,19 @@
 # Vehicle photo credits
 
-Sample inventory photos are from Wikimedia Commons, resized to 1200px wide and re-encoded as JPEG. Photos under CC BY-SA require attribution and share-alike for adapted versions.
+Sample inventory photos are pictures of the same model and model year as the demo listing. They are not photographs of a dealer stock unit. Files were downloaded from Wikimedia Commons, resized to 1200px wide, and re-encoded as progressive JPEG. CC BY and CC BY-SA require attribution; CC BY-SA also requires share-alike for adapted versions. Public-domain files do not require attribution; the photographer asked to be credited anyway.
+
+The previous modern sample photos (Camry, CR-V, F-150, Malibu, Outback, Rogue, Wrangler, Elantra) were removed with this inventory and are not retained, so their credits are not kept.
 
 | File | Vehicle shown | Author | License | Source |
 |---|---|---|---|---|
-| 2019-toyota-camry-1.jpg | 2018+ Toyota Camry (XV70) SE, United States.jpg | Ghostofakina | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:2018%2B_Toyota_Camry_(XV70)_SE,_United_States.jpg |
-| 2019-toyota-camry-2.jpg | Toyota Camry (XV70) SE (2), United States.jpg | Ghostofakina | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Toyota_Camry_(XV70)_SE_(2),_United_States.jpg |
-| 2018-honda-cr-v-1.jpg | 2018 Honda CR-V 11.24.17.jpg | Kevauto | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:2018_Honda_CR-V_11.24.17.jpg |
-| 2018-honda-cr-v-2.jpg | Honda CR-V EX AWD '19 (1).jpg | Oq10pass | CC0 | https://commons.wikimedia.org/wiki/File:Honda_CR-V_EX_AWD_%2719_(1).jpg |
-| 2017-ford-f-150-1.jpg | '17 Ford F-150 Crew Cab.jpg | Bull-Doser | Public domain | https://commons.wikimedia.org/wiki/File:%2717_Ford_F-150_Crew_Cab.jpg |
-| 2020-chevrolet-malibu-1.jpg | 2017 Chevrolet Malibu LT, Front Left, 08-24-2020.jpg | SsmIntrigue | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:2017_Chevrolet_Malibu_LT,_Front_Left,_08-24-2020.jpg |
-| 2016-subaru-outback-1.jpg | 2015 Subaru Outback (BS9 MY15) 2.5i Premium station wagon (2016-04-29) 01.jpg | EurovisionNim | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:2015_Subaru_Outback_(BS9_MY15)_2.5i_Premium_station_wagon_(2016-04-29)_01.jpg |
-| 2016-subaru-outback-2.jpg | 2015 Subaru Outback (BS9 MY15) 2.5i Premium station wagon (2016-04-29) 02.jpg | EurovisionNim | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:2015_Subaru_Outback_(BS9_MY15)_2.5i_Premium_station_wagon_(2016-04-29)_02.jpg |
-| 2021-nissan-rogue-1.jpg | 2021 Nissan Rogue SV AWD, front 1.1.21.jpg | Kevauto | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:2021_Nissan_Rogue_SV_AWD,_front_1.1.21.jpg |
-| 2021-nissan-rogue-2.jpg | 2021 Nissan Rogue SV AWD, rear 1.1.21.jpg | Kevauto | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:2021_Nissan_Rogue_SV_AWD,_rear_1.1.21.jpg |
-| 2015-jeep-wrangler-1.jpg | 2015 Jeep Wrangler Unlimited Sport.jpg | DestinationFearFan | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:2015_Jeep_Wrangler_Unlimited_Sport.jpg |
-| 2019-hyundai-elantra-1.jpg | 2019 Hyundai Elantra facelift front 1.21.19.jpg | Kevauto | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:2019_Hyundai_Elantra_facelift_front_1.21.19.jpg |
-| 2019-hyundai-elantra-2.jpg | 2019 Hyundai Elantra facelift rear 1.21.19.jpg | Kevauto | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:2019_Hyundai_Elantra_facelift_rear_1.21.19.jpg |
+| 1970-chevrolet-chevelle-ss-1.jpg | 1970 Chevrolet Chevelle SS 396 Sport Coupe, front left | MercurySable99 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:1970_Chevrolet_Chevelle_SS_396_Sport_Coupe,_front_left,_06-08-2024.jpg |
+| 1969-ford-mustang-mach-1-1.jpg | 1969 Ford Mustang Mach 1, front left | MercurySable99 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:1969_Ford_Mustang_Mach_I,_front_left_(Wings-n-Wheels_2023).jpg |
+| 1970-dodge-challenger-rt-1.jpg | 1970 Dodge Challenger R/T | Calreyn88 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:1970_Dodge_Challenger_R-T.jpg |
+| 1969-dodge-charger-se-1.jpg | 1969 Dodge Charger SE, front | Christopher Ziemnowicz (CZmarlin) | Public domain | https://commons.wikimedia.org/wiki/File:1969_Dodge_Charger_green_F.jpg |
+| 1969-dodge-charger-se-2.jpg | 1969 Dodge Charger SE, rear | Christopher Ziemnowicz (CZmarlin) | Public domain | https://commons.wikimedia.org/wiki/File:1969_Dodge_Charger_green_R.jpg |
+| 1969-pontiac-gto-1.jpg | 1969 Pontiac GTO hardtop coupe, front left | MercurySable99 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:1969_Pontiac_GTO_hardtop_coupe,_front_left,_07-19-2025.jpg |
+| 1969-chevrolet-camaro-ss-1.jpg | 1969 Chevrolet Camaro SS | Calreyn88 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:1969_Chevrolet_Camaro_SS_2.jpg |
+| 1970-plymouth-barracuda-1.jpg | 1970 Plymouth 'Cuda | GPS 56 | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:1970_Plymouth_Cuda_(12922608173).jpg |
+| 1969-plymouth-road-runner-1.jpg | 1969 Plymouth Road Runner | Joe Mabel | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:1969_Plymouth_Road_Runner_02.jpg |
+
+License links: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0).

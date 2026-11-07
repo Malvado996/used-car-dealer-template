@@ -7,6 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { PublicChrome } from "@/components/public-chrome";
 import { JsonLd } from "@/components/json-ld";
+import { Starfield } from "@/components/starfield";
 import { autoDealerJsonLd } from "@/lib/seo";
 
 const heading = Fraunces({ subsets: ["latin"], weight: ["600", "700"], variable: "--font-display", display: "swap" });
@@ -49,7 +50,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           Skip to content
         </a>
         <PublicChrome><SiteHeader /></PublicChrome>
-        <main id="main" className="showroom-glow flex-1">{children}</main>
+        <main id="main" className="starfield-host flex-1">
+          <Starfield />
+          {children}
+        </main>
         <PublicChrome><SiteFooter /></PublicChrome>
         <JsonLd data={autoDealerJsonLd()} />
         </ThemeProvider>
