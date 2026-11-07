@@ -154,56 +154,52 @@
   background: linear-gradient(90deg, var(--brand-accent) 0 33.3%, #ffffff 33.3% 66.6%, var(--primary) 66.6% 100%);
 }
 
-/* Flag cloth on <main>. CSS only, no glow.
-   Wave 9s ease-in-out. Crest at 34%: translateX +7px, translateY -6px, rotate +2deg.
-   Settle at 0%/100%: translateX -4px, translateY +3px, rotate -1.5deg.
-   Trough at 67%: translateX -3px, translateY +5px, rotate -1.75deg.
-   Column stagger 0.48s with the left column ahead (see starfield.tsx),
-   so the crest travels left to right in 4.32s. Row stagger 0.05s.
-   Ink keyframes share those stops, so color and brightness ride the same phase. */
+/* Flag cloth. 12s linear samples of one sine so velocity matches at the loop.
+   x = 5px·sin(θ), y = -4px·cos(θ) (crest is up at θ=0), rotate = 1.25deg·sin(θ).
+   Left column is ahead (starfield.tsx): the crest reaches the right 6.48s later. */
 @keyframes starfield-wave {
-  0%,
-  100% {
-    transform: translate(-50%, -50%) translate3d(-4px, 3px, 0) rotate(-1.5deg);
-  }
-  34% {
-    transform: translate(-50%, -50%) translate3d(7px, -6px, 0) rotate(2deg);
-  }
-  67% {
-    transform: translate(-50%, -50%) translate3d(-3px, 5px, 0) rotate(-1.75deg);
-  }
+  0%, 100% { transform: translate(-50%, -50%) translate3d(0px, -4px, 0) rotate(0deg); }
+  8.333% { transform: translate(-50%, -50%) translate3d(2.5px, -3.46px, 0) rotate(0.62deg); }
+  16.667% { transform: translate(-50%, -50%) translate3d(4.33px, -2px, 0) rotate(1.08deg); }
+  25% { transform: translate(-50%, -50%) translate3d(5px, 0px, 0) rotate(1.25deg); }
+  33.333% { transform: translate(-50%, -50%) translate3d(4.33px, 2px, 0) rotate(1.08deg); }
+  41.667% { transform: translate(-50%, -50%) translate3d(2.5px, 3.46px, 0) rotate(0.62deg); }
+  50% { transform: translate(-50%, -50%) translate3d(0px, 4px, 0) rotate(0deg); }
+  58.333% { transform: translate(-50%, -50%) translate3d(-2.5px, 3.46px, 0) rotate(-0.63deg); }
+  66.667% { transform: translate(-50%, -50%) translate3d(-4.33px, 2px, 0) rotate(-1.08deg); }
+  75% { transform: translate(-50%, -50%) translate3d(-5px, 0px, 0) rotate(-1.25deg); }
+  83.333% { transform: translate(-50%, -50%) translate3d(-4.33px, -2px, 0) rotate(-1.08deg); }
+  91.667% { transform: translate(-50%, -50%) translate3d(-2.5px, -3.46px, 0) rotate(-0.63deg); }
 }
 
 @keyframes starfield-ink {
-  0%,
-  100% {
-    color: color-mix(in oklab, var(--foreground) 72%, #f4f0e6);
-    opacity: 0.2;
-  }
-  34% {
-    color: color-mix(in oklab, var(--foreground) 38%, #fbf7ee);
-    opacity: 0.34;
-  }
-  67% {
-    color: color-mix(in oklab, var(--foreground) 82%, #c5cedc);
-    opacity: 0.13;
-  }
+  0%, 100% { color: color-mix(in oklab, var(--foreground) 42%, #fbf7ee); opacity: 0.32; }
+  8.333% { color: color-mix(in oklab, var(--foreground) 45%, #f7f4ec); opacity: 0.309; }
+  16.667% { color: color-mix(in oklab, var(--foreground) 52%, #f0eee6); opacity: 0.277; }
+  25% { color: color-mix(in oklab, var(--foreground) 61%, #e7e6e0); opacity: 0.235; }
+  33.333% { color: color-mix(in oklab, var(--foreground) 70%, #dfe2e4); opacity: 0.193; }
+  41.667% { color: color-mix(in oklab, var(--foreground) 77%, #d4d8de); opacity: 0.161; }
+  50% { color: color-mix(in oklab, var(--foreground) 80%, #c5cedc); opacity: 0.15; }
+  58.333% { color: color-mix(in oklab, var(--foreground) 77%, #d4d8de); opacity: 0.161; }
+  66.667% { color: color-mix(in oklab, var(--foreground) 71%, #dfe2e4); opacity: 0.192; }
+  75% { color: color-mix(in oklab, var(--foreground) 61%, #e7e6e0); opacity: 0.235; }
+  83.333% { color: color-mix(in oklab, var(--foreground) 52%, #f0eee6); opacity: 0.277; }
+  91.667% { color: color-mix(in oklab, var(--foreground) 45%, #f7f4ec); opacity: 0.309; }
 }
 
 @keyframes starfield-ink-dark {
-  0%,
-  100% {
-    color: #e4e0d6;
-    opacity: 0.48;
-  }
-  34% {
-    color: #fbf6ea;
-    opacity: 0.8;
-  }
-  67% {
-    color: #c8d0dc;
-    opacity: 0.3;
-  }
+  0%, 100% { color: #fbf6ea; opacity: 0.68; }
+  8.333% { color: color-mix(in oklab, #c8d0dc 7%, #fbf6ea); opacity: 0.659; }
+  16.667% { color: color-mix(in oklab, #c8d0dc 25%, #fbf6ea); opacity: 0.6; }
+  25% { color: color-mix(in oklab, #c8d0dc 50%, #fbf6ea); opacity: 0.52; }
+  33.333% { color: color-mix(in oklab, #c8d0dc 75%, #fbf6ea); opacity: 0.44; }
+  41.667% { color: color-mix(in oklab, #c8d0dc 93%, #fbf6ea); opacity: 0.381; }
+  50% { color: #c8d0dc; opacity: 0.36; }
+  58.333% { color: color-mix(in oklab, #c8d0dc 93%, #fbf6ea); opacity: 0.381; }
+  66.667% { color: color-mix(in oklab, #c8d0dc 75%, #fbf6ea); opacity: 0.44; }
+  75% { color: color-mix(in oklab, #c8d0dc 50%, #fbf6ea); opacity: 0.52; }
+  83.333% { color: color-mix(in oklab, #c8d0dc 25%, #fbf6ea); opacity: 0.6; }
+  91.667% { color: color-mix(in oklab, #c8d0dc 7%, #fbf6ea); opacity: 0.659; }
 }
 
 .starfield-host {
@@ -246,8 +242,8 @@
   transform: translate(-50%, -50%);
   pointer-events: none;
   animation-name: starfield-wave, starfield-ink;
-  animation-duration: 9s, 9s;
-  animation-timing-function: ease-in-out, ease-in-out;
+  animation-duration: 12s, 12s;
+  animation-timing-function: linear, linear;
   animation-iteration-count: infinite, infinite;
 }
 
@@ -280,4 +276,26 @@
 /* Deeper than header red-700 oklch(0.505 0.213 27.518), same hue family. */
 .site-footer {
   background-color: oklch(0.448 0.198 27.518);
+}
+
+/* Unlayered so the artwork cannot fall back to its 1247×897 attributes. */
+.hero-art-slot {
+  display: none;
+  width: min(100%, 18rem);
+  max-width: 18rem;
+  min-width: 0;
+  justify-self: end;
+}
+.hero-art {
+  display: block;
+  width: 100%;
+  max-width: 18rem;
+  height: auto;
+  max-height: 16rem;
+  object-fit: contain;
+}
+@media (min-width: 48rem) {
+  .hero-art-slot {
+    display: block;
+  }
 }

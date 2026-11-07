@@ -22,7 +22,7 @@ export default async function HomePage() {
           aria-hidden
           className="bg-stripes absolute inset-y-0 right-0 -z-10 w-2/3 [mask-image:linear-gradient(to_left,black,transparent)]"
         />
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:py-24 md:grid-cols-[1fr_auto]">
+        <div className="mx-auto grid w-full min-w-0 max-w-6xl items-center gap-10 px-4 py-16 sm:py-24 md:grid-cols-[minmax(0,1fr)_minmax(0,18rem)]">
           <div>
             {dealer.hero.eyebrow && (
               <p className="text-sm font-semibold uppercase tracking-[0.2em] opacity-80">
@@ -57,15 +57,18 @@ export default async function HomePage() {
               </a>
             </div>
           </div>
-          <Image
-            src="/brand/hero-car.webp"
-            alt="Illustrated front view of a classic muscle car"
-            width={1247}
-            height={897}
-            priority
-            sizes="(min-width: 768px) 18rem, 0px"
-            className="mx-auto hidden h-auto w-72 md:block"
-          />
+          <div className="hero-art-slot">
+            <Image
+              src="/brand/hero-car.webp"
+              alt="Illustrated front view of a classic muscle car"
+              width={1247}
+              height={897}
+              priority
+              sizes="(min-width: 48rem) 18rem, 1px"
+              className="hero-art"
+              style={{ width: "100%", height: "auto", maxWidth: "18rem" }}
+            />
+          </div>
         </div>
         <div aria-hidden className="stripe-rule" />
       </section>
