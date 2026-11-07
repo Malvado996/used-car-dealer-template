@@ -1,6 +1,8 @@
 /**
  * Decorative flag field on the main column.
- * Exactly 100 five-point stars, server-rendered and not animated.
+ * Exactly 100 five-point stars. Motion is CSS only: one shared horizontal
+ * drift, plus a soft vertical ripple phased so its crest travels left to right.
+ * Color and opacity are not animated.
  */
 
 const COLS = 10;
@@ -38,20 +40,29 @@ export function Starfield() {
   return (
     <div className="starfield-slot" aria-hidden="true">
       <div className="starfield">
-        {flagStars().map((star) => (
-          <svg
-            key={star.id}
-            aria-hidden="true"
-            focusable="false"
-            className="starfield-star"
-            data-col={star.col}
-            data-row={star.row}
-            viewBox="0 0 24 24"
-            style={{ left: `${star.x}%`, top: `${star.y}%` }}
-          >
-            <path fill="currentColor" d={STAR_PATH} />
-          </svg>
-        ))}
+        <div className="starfield-drift">
+          {flagStars().map((star) => (
+            <svg
+              key={star.id}
+              aria-hidden="true"
+              focusable="false"
+              className="starfield-star"
+              data-col={star.col}
+              data-row={star.row}
+              viewBox="0 0 24 24"
+              style={
+                {
+                  left: `${star.x}%`,
+                  top: `${star.y}%`,
+                  "--star-col": star.col,
+                  "--star-row": star.row,
+                } as React.CSSProperties
+              }
+            >
+              <path fill="currentColor" d={STAR_PATH} />
+            </svg>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -154,7 +154,31 @@
   background: linear-gradient(90deg, var(--brand-accent) 0 33.3%, #ffffff 33.3% 66.6%, var(--primary) 66.6% 100%);
 }
 
-/* Static flag field. No keyframes, no opacity or color cycling. */
+/* Gentle cloth. Two layers, both seamless at 0% and 100%, no rotation or ink.
+   Drift: the whole field, 60s ease-in-out, translateX -6px → +6px → -6px.
+   Ripple: each star, 30s ease-in-out, translateY +4px → -4px (crest) → +4px.
+   Delay = -((9 - col) * 1.4s + row * 0.06s), so column 0 leads column 9 by 12.6s
+   and the crest travels left to right. */
+@keyframes starfield-drift {
+  0%,
+  100% {
+    transform: translate3d(-6px, 0, 0);
+  }
+  50% {
+    transform: translate3d(6px, 0, 0);
+  }
+}
+
+@keyframes starfield-ripple {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translate3d(0, 4px, 0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translate3d(0, -4px, 0);
+  }
+}
+
 .starfield-host {
   position: relative;
   isolation: isolate;
@@ -186,6 +210,14 @@
   -webkit-mask-composite: source-in;
 }
 
+/* Shared layer. Every star rides this, so the horizontal drift stays coherent. */
+.starfield-drift {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  animation: starfield-drift 60s ease-in-out infinite;
+}
+
 .starfield-star {
   position: absolute;
   width: 11px;
@@ -194,8 +226,9 @@
   opacity: 0.45;
   transform: translate(-50%, -50%);
   pointer-events: none;
-  animation: none;
   transition: none;
+  animation: starfield-ripple 30s ease-in-out infinite;
+  animation-delay: calc((9 - var(--star-col)) * -1.4s - var(--star-row) * 0.06s);
 }
 
 .dark .starfield-star {
@@ -207,6 +240,13 @@
   .starfield-star {
     width: 14px;
     height: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .starfield-drift,
+  .starfield-star {
+    animation: none;
   }
 }
 
