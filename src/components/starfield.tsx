@@ -3,14 +3,14 @@
  * server-rendered. Motion is CSS only (see globals.css).
  *
  * Left-to-right breeze: column 0 is ahead of column 9.
- * delay = -((9 - col) * 0.85s + row * 0.03s)
+ * delay = -((9 - col) * 0.72s + row * 0.03s)
  * The crest (θ = 0) is reached on the left first and arrives at the
- * right-hand column 7.65s later.
+ * right-hand column 6.48s later.
  */
 
 const COLS = 10;
 const ROWS = 10;
-const COLUMN_STAGGER_S = 0.85;
+const COLUMN_STAGGER_S = 0.72;
 const ROW_STAGGER_S = 0.03;
 
 const STAR_PATH =

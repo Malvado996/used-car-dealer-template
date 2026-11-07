@@ -154,23 +154,23 @@
   background: linear-gradient(90deg, var(--brand-accent) 0 33.3%, #ffffff 33.3% 66.6%, var(--primary) 66.6% 100%);
 }
 
-/* Flag cloth. 11s linear sine, identical at 0% and 100%.
-   x = 5px·sin(θ), y = -12px·cos(θ), rotate = 1.75deg·sin(θ).
-   Column stagger 0.85s, left ahead, so the crest crosses to the right in 7.65s.
+/* Flag cloth. 10s linear sine, identical at 0% and 100%.
+   x = 8px·sin(θ), y = -22px·cos(θ), rotate = 2.5deg·sin(θ).
+   Column stagger 0.72s, left ahead, so the crest crosses to the right in 6.48s.
 */
 @keyframes starfield-wave {
-  0%, 100% { transform: translate(-50%, -50%) translate3d(0.00px, -12.00px, 0) rotate(0.00deg); }
-  8.333% { transform: translate(-50%, -50%) translate3d(2.50px, -10.39px, 0) rotate(0.87deg); }
-  16.667% { transform: translate(-50%, -50%) translate3d(4.33px, -6.00px, 0) rotate(1.52deg); }
-  25% { transform: translate(-50%, -50%) translate3d(5.00px, -0.00px, 0) rotate(1.75deg); }
-  33.333% { transform: translate(-50%, -50%) translate3d(4.33px, 6.00px, 0) rotate(1.52deg); }
-  41.667% { transform: translate(-50%, -50%) translate3d(2.50px, 10.39px, 0) rotate(0.87deg); }
-  50% { transform: translate(-50%, -50%) translate3d(0.00px, 12.00px, 0) rotate(0.00deg); }
-  58.333% { transform: translate(-50%, -50%) translate3d(-2.50px, 10.39px, 0) rotate(-0.88deg); }
-  66.667% { transform: translate(-50%, -50%) translate3d(-4.33px, 6.00px, 0) rotate(-1.52deg); }
-  75% { transform: translate(-50%, -50%) translate3d(-5.00px, 0.00px, 0) rotate(-1.75deg); }
-  83.333% { transform: translate(-50%, -50%) translate3d(-4.33px, -6.00px, 0) rotate(-1.52deg); }
-  91.667% { transform: translate(-50%, -50%) translate3d(-2.50px, -10.39px, 0) rotate(-0.88deg); }
+  0%, 100% { transform: translate(-50%, -50%) translate3d(0.00px, -22.00px, 0) rotate(0.00deg); }
+  8.333% { transform: translate(-50%, -50%) translate3d(4.00px, -19.05px, 0) rotate(1.25deg); }
+  16.667% { transform: translate(-50%, -50%) translate3d(6.93px, -11.00px, 0) rotate(2.17deg); }
+  25% { transform: translate(-50%, -50%) translate3d(8.00px, -0.00px, 0) rotate(2.50deg); }
+  33.333% { transform: translate(-50%, -50%) translate3d(6.93px, 11.00px, 0) rotate(2.17deg); }
+  41.667% { transform: translate(-50%, -50%) translate3d(4.00px, 19.05px, 0) rotate(1.25deg); }
+  50% { transform: translate(-50%, -50%) translate3d(0.00px, 22.00px, 0) rotate(0.00deg); }
+  58.333% { transform: translate(-50%, -50%) translate3d(-4.00px, 19.05px, 0) rotate(-1.25deg); }
+  66.667% { transform: translate(-50%, -50%) translate3d(-6.93px, 11.00px, 0) rotate(-2.17deg); }
+  75% { transform: translate(-50%, -50%) translate3d(-8.00px, 0.00px, 0) rotate(-2.50deg); }
+  83.333% { transform: translate(-50%, -50%) translate3d(-6.93px, -11.00px, 0) rotate(-2.17deg); }
+  91.667% { transform: translate(-50%, -50%) translate3d(-4.00px, -19.05px, 0) rotate(-1.25deg); }
 }
 
 @keyframes starfield-ink {
@@ -243,7 +243,7 @@
   transform: translate(-50%, -50%);
   pointer-events: none;
   animation-name: starfield-wave, starfield-ink;
-  animation-duration: 11s, 11s;
+  animation-duration: 10s, 10s;
   animation-timing-function: linear, linear;
   animation-iteration-count: infinite, infinite;
 }
